@@ -48,6 +48,7 @@ enum class BondState(val value: Int) {
     BONDED(BluetoothDevice.BOND_BONDED),
 
     BOND_LOST(13),
+    BOND_RESET_BY_PAIR_DEVICE(15),
     BONDING_FAILED(14);
 
     companion object {

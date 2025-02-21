@@ -557,6 +557,7 @@ class BluetoothPeripheral internal constructor(
             manuallyBonding = true
             if (!device.createBond()) {
                 Logger.e(TAG, "bonding failed for %s", address)
+                callbackScope.launch { bondStateCallback.invoke(BondState.BOND_RESET_BY_PAIR_DEVICE) }
                 completedCommand()
             } else {
                 Logger.d(TAG, "manually bonding %s", address)
