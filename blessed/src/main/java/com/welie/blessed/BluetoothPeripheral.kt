@@ -435,7 +435,6 @@ class BluetoothPeripheral internal constructor(
                 if (previousBondState == BluetoothDevice.BOND_BONDING) {
                     Logger.e(TAG, "bonding failed for '%s', disconnecting device", name)
                     callbackScope.launch { bondStateCallback.invoke(BondState.BONDING_FAILED) }
-
                 } else {
                     Logger.e(TAG, "bond lost for '%s'", name)
                     bondLost = true
@@ -443,7 +442,6 @@ class BluetoothPeripheral internal constructor(
                     cancelPendingServiceDiscovery()
                     callbackScope.launch { bondStateCallback.invoke(BondState.BOND_LOST) }
                 }
-                disconnect()
             }
         }
     }
