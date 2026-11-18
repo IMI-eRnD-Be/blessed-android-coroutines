@@ -22,12 +22,12 @@ jobs:
         with:
           submodules: recursive
       - name: setup java
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'microsoft'
-          java-version: 17
+          java-version: '17'
       - name: setup android
-        uses: android-actions/setup-android@v2
+        uses: android-actions/setup-android@v4
       - name: setup gradle
         uses: gradle/gradle-build-action@v2
         with:
